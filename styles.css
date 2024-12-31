@@ -35,3 +35,56 @@ body {
     text-align: justify;
     
 }
+
+.btn {
+    margin-top: 10px;
+    align-self: flex-start;
+    margin-left: 10px;
+    border: none;
+    background-color: blueviolet;
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+dialog:not(#close) {
+    backdrop-filter: blur(2px);
+    width: 50%;
+    height: 400px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+dialog #close {
+    width: 30px;
+    align-self: flex-end;
+}
+
+dialog label {
+    margin: 10px;
+}
+
+dialog fieldset {
+    display: flex;
+    flex-direction: column;
+}
+
+#submit {
+    align-self:self-end;
+    margin-top: 50px;
+}
+dialog #submit {
+    background-color: blue;
+    color: white;
+    border: none;
+    height: 40px;
+    width: 100px;
+}
+
+dialog > * > * {
+    border-radius: 10px;
+}
