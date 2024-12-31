@@ -1,7 +1,7 @@
 body {
     margin: 0;
     border: 0;
-    background-color: white;
+    background-color: #ffe4c4;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -11,7 +11,7 @@ body {
 }
 
 .container {
-    background-color: purple;
+    background-color: #dec09a;
     width: 100vw;
     height: 300px;
     display: flex;
@@ -21,16 +21,19 @@ body {
 }
 
 .card {
-    background-color: #121212;
+    background-color: white;
     width: 200px;
     height: 200px;
-    color: white;
+    color: black;
     padding: 20px;
     border-radius: 10px;
-    border-left: 2px solid white;
+    border-left: 10px solid darkgoldenrod;
     box-shadow: 2px 2px black;
 }
 
+.card p {
+    font-weight: bolder;
+}
 .card p {
     text-align: justify;
     
@@ -41,27 +44,23 @@ body {
     align-self: flex-start;
     margin-left: 10px;
     border: none;
-    background-color: blueviolet;
-    width: 100px;
+    background-color: rgb(118, 98, 57);
+    color: white;
+    width: 200px;
     height: 50px;
     border-radius: 10px;
     cursor: pointer;
 }
 
 dialog:not(#close) {
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(4px), saturate(50%);
     width: 50%;
     height: 400px;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
 }
 
-dialog #close {
+#close {
     width: 30px;
-    align-self: flex-end;
 }
 
 dialog label {
@@ -76,7 +75,9 @@ dialog fieldset {
 #submit {
     align-self:self-end;
     margin-top: 50px;
+    border-radius: 10px;
 }
+
 dialog #submit {
     background-color: blue;
     color: white;
@@ -85,6 +86,7 @@ dialog #submit {
     width: 100px;
 }
 
-dialog > * > * {
+dialog > * {
     border-radius: 10px;
+    margin-top: 10px;
 }
