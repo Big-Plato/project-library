@@ -8,10 +8,6 @@ const submitBtn = document.querySelector("#submit");
 const form = document.querySelector('#book-form');
 const card = document.querySelector('.card');
 
-formData = new FormData(form);
-
-console.log(form);
-
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -19,10 +15,11 @@ form.addEventListener("submit", (e) => {
   let authorBook = document.querySelector("#author");
   let yearBook = document.querySelector("#year");
 
-  let arrBook = [bookTitle.value, authorBook.value, yearBook.value];
-  console.log(arrBook)
-  console.log(formData.getAll(bookTitle))
+  let arrBook = new Book(bookTitle.value, authorBook.value, yearBook.value)
+  console.dir(arrBook);
   addBookToLibrary(myLibrary, arrBook);
+  console.log(myLibrary);
+  displayBooks(myLibrary);
 
   // if (bookTitle.value == "" || authorBook.value == "" || yearBook.title == "") {
   //     throw new Error("Please, fill in before submit")
@@ -54,20 +51,21 @@ function Book(title, author, year) {
 
 const book1 = new Book("Apology of Socrates", "Plato", 1988);
 const book2 = new Book("O Idiota", "Dostoiévski", 1888);
+const book3 = new Book("O grande Conflito", "Waite", 2006);
 
-function addBookToLibrary(arr) {
-  for (let i = card.length; i > 0; i--) {
-    let add = Object.create(Book);
-    console.log
-  }
+function addBookToLibrary(books, newBook) {
+  books.push(newBook); 
+  return books;
 }
 
 addBookToLibrary(myLibrary, book1);
 addBookToLibrary(myLibrary, book2);
+addBookToLibrary(myLibrary, book3);
+
+// displayBooks(myLibrary);
 
 function displayBooks(arr) {
-  let i = 0;
-  while (i < arr.length) {
+  arr.forEach((item) => {
     const itemListBook = document.createElement("div");
     itemListBook.classList.add("card");
     container.appendChild(itemListBook);
@@ -78,15 +76,15 @@ function displayBooks(arr) {
     itemListBook.appendChild(para2);
     itemListBook.appendChild(para3);
 
-    para1.textContent = `${arr[i].title}`;
-    para2.textContent = `${arr[i].author}`;
-    para3.textContent = `${arr[i].year}`;
+    para1.textContent = `${item.title}`;
+    para2.textContent = `${item.author}`;
+    para3.textContent = `${item.year}`;
 
-    console.log(arr[i].title);
-    console.log(arr[i].author);
-    console.log(arr[i].year);
-    i++;
-  }
+    console.log(item.title);
+    console.log(item.author);
+    console.log(item.year);
+  })
+  return arr;
 }
 
-displayBooks(myLibrary);
+
