@@ -7,29 +7,31 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Girassol&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik+Moonrocks&family=Rubik+Puddles&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Girassol&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik+Moonrocks&family=Rubik+Puddles&display=swap" rel="stylesheet">
   </head>
   <body>
     <h1>Library</h1>
-    <div class="container"></div>
     <dialog>
-      <button id="close">X</button>
-      <legend>Fill the informations of the book below</legend>
-      <form id="book-form" action="">
-        <fieldset>
-          <label for="title">Title</label>
-          <input id="title" placeholder="The Foundation" />
-          <label for="author">Author</label>
-          <input type="text" id="author" placeholder="Isaac Asimov" />
-          <label for="year">Pages</label>
-          <input type="text" id="year" placeholder="1951" />
-          <label for="read">Read</label>
-          <input id="read" type="checkbox">
-        </fieldset>
-        <button form="book-form" id="submit" type="submit">Send</button>
-      </form>
-    </dialog>
-    <button class="btn">Add a book to the library</button>
+        <button id="close">X</button>
+        <legend>Fill the informations of the book</legend>
+        <form id="book-form" action="">
+          <fieldset>
+            <label for="title">Title</label>
+            <input id="title" placeholder="The Foundation" />
+            <label for="author">Author</label>
+            <input type="text" id="author" placeholder="Isaac Asimov" />
+            <label for="pages">Pages</label>
+            <input type="number" id="pages" placeholder="Ex: 200" />
+            <label for="read">Read</label>
+            <input id="read" type="checkbox">
+          </fieldset>
+          <button form="book-form" id="submit" type="submit">Send</button>
+        </form>
+      </dialog>
+      <button class="btn">Add a book to your library</button>
+    <div class="container"></div>
+    <footer>Copyright © Luis Octávio</footer>
+    
 
     <script src="index.js"></script>
   </body>
