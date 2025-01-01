@@ -6,7 +6,9 @@ const showDialogBtn = document.querySelector("dialog + button");
 const closeDialogBtn = document.querySelector("#close");
 const submitBtn = document.querySelector("#submit");
 const form = document.querySelector('#book-form');
-const card = document.querySelector('.card');
+const cardBtn = document.createElement('button');
+cardBtn.textContent = "Remove";
+
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -18,8 +20,7 @@ form.addEventListener("submit", (e) => {
   let arrBook = new Book(bookTitle.value, authorBook.value, yearBook.value)
   console.dir(arrBook);
   addBookToLibrary(myLibrary, arrBook);
-  console.log(myLibrary);
-  displayBooks(myLibrary);
+  console.log(myLibrary);   
 
   // if (bookTitle.value == "" || authorBook.value == "" || yearBook.title == "") {
   //     throw new Error("Please, fill in before submit")
@@ -53,8 +54,11 @@ const book1 = new Book("Apology of Socrates", "Plato", 1988);
 const book2 = new Book("O Idiota", "Dostoiévski", 1888);
 const book3 = new Book("O grande Conflito", "Waite", 2006);
 
+
 function addBookToLibrary(books, newBook) {
   books.push(newBook); 
+  displayBooks(newBook);
+  console.log(newBook)
   return books;
 }
 
@@ -64,8 +68,11 @@ addBookToLibrary(myLibrary, book3);
 
 // displayBooks(myLibrary);
 
-function displayBooks(arr) {
-  arr.forEach((item) => {
+for (let i = 0; i < myLibrary.length; i++) {
+    displayBooks();
+}
+
+function displayBooks(book) {
     const itemListBook = document.createElement("div");
     itemListBook.classList.add("card");
     container.appendChild(itemListBook);
@@ -76,15 +83,14 @@ function displayBooks(arr) {
     itemListBook.appendChild(para2);
     itemListBook.appendChild(para3);
 
-    para1.textContent = `${item.title}`;
-    para2.textContent = `${item.author}`;
-    para3.textContent = `${item.year}`;
+    para1.textContent = `${book.title}`;
+    para2.textContent = `${book.author}`;
+    para3.textContent = `${book.year}`;
 
-    console.log(item.title);
-    console.log(item.author);
-    console.log(item.year);
-  })
-  return arr;
+    console.log(book.title);
+    console.log(book.author);
+    console.log(book.year);
 }
+
 
 
