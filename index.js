@@ -7,16 +7,18 @@ const closeDialogBtn = document.querySelector("#close");
 const submitBtn = document.querySelector("#submit");
 const form = document.querySelector("#book-form");
 const cardBtn = document.createElement("button");
-const checkRead = document.querySelector("#read");
+
 
 //Form submit
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
   //Variables to manipulate the data from input
-  let bookTitle = document.querySelector("#title");
-  let authorBook = document.querySelector("#author");
-  let pagesBook = document.querySelector("#pages");
+  const bookTitle = document.querySelector("#title");
+  const authorBook = document.querySelector("#author");
+  const pagesBook = document.querySelector("#pages");
+  const checkRead = document.querySelector("#read");
+
 
   //If user does not put anything returns an error
   if (bookTitle.value === " " || authorBook.value === " " || pagesBook.title === " ") {
@@ -25,11 +27,13 @@ form.addEventListener("submit", (e) => {
     console.log(bookTitle.value);
   }
 
+  if (checkRead.checked == true) {
+
+  }
+
   // Create an array with the values provided to turn into a object
   let arrBook = new Book(bookTitle.value, authorBook.value, pagesBook.value);
-  console.dir(arrBook);
   addBookToLibrary(myLibrary, arrBook);
-  console.log(myLibrary);
 });
 
 showDialogBtn.addEventListener("click", () => {
@@ -38,19 +42,16 @@ showDialogBtn.addEventListener("click", () => {
 
 closeDialogBtn.addEventListener("click", () => {
   dialog.close();
-  console.log("Hi");
 });
 
-function Book(title, author, pages) {
+function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
+  this.read = read;
 }
 
-const book1 = new Book("Apology of Socrates", "Plato", 475);
-const book2 = new Book("O Idiota", "Dostoiévski", 558);
-const book3 = new Book("O grande Conflito", "Waite", 267);
-const book4 = new Book("Íliada", "Homero", 967);
+const book1 = new Book("Apology of Socrates", "Plato", 2005)
 
 function addBookToLibrary(books, newBook) {
   books.push(newBook);
@@ -58,13 +59,7 @@ function addBookToLibrary(books, newBook) {
   console.log(newBook);
 }
 
-// addBookToLibrary(myLibrary, book1);
-// addBookToLibrary(myLibrary, book2);
-// addBookToLibrary(myLibrary, book3);
-// addBookToLibrary(myLibrary, book4)
-
-// displayBooks(myLibrary);
-
+// Loop to add the books to the Library, Don't know if is needed
 for (let i = 1; i <= myLibrary.length; i++) {
   displayBooks();
 }
@@ -79,6 +74,15 @@ function displayBooks(book) {
   itemListBook.appendChild(para1);
   itemListBook.appendChild(para2);
   itemListBook.appendChild(para3);
+
+  const removeBtn = document.createElement('button');
+  itemListBook.appendChild(removeBtn);
+  removeBtn.classList.add('btn');
+  removeBtn.textContent = "Remove";
+
+  removeBtn.addEventListener('click', () => {
+    container.removeChild(itemListBook);
+  })
 
   para1.textContent = `${book.title}`;
   para2.textContent = `${book.author}`;
