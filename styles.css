@@ -72,6 +72,10 @@ dialog {
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+dialog #read {
+    align-self: flex-start;
+}
+
 #close {
     width: 30px;
 }

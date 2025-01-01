@@ -17,16 +17,18 @@ form.addEventListener("submit", (e) => {
   let authorBook = document.querySelector("#author");
   let yearBook = document.querySelector("#year");
 
+  if (bookTitle.value == "" || authorBook.value == "" || yearBook.title == "") {
+      throw new Error("Please, fill in before submit")
+  } else {
+      console.log(bookTitle.value);
+  }
+
   let arrBook = new Book(bookTitle.value, authorBook.value, yearBook.value)
   console.dir(arrBook);
   addBookToLibrary(myLibrary, arrBook);
   console.log(myLibrary);   
 
-  // if (bookTitle.value == "" || authorBook.value == "" || yearBook.title == "") {
-  //     throw new Error("Please, fill in before submit")
-  // } else {
-  //     console.log(bookTitle.value);
-  // }
+  
 });
 
 showDialogBtn.addEventListener("click", () => {
@@ -43,23 +45,23 @@ closeDialogBtn.addEventListener("click", () => {
 //     e.preventDefault();
 // })
 
-function Book(title, author, year) {
+function Book(title, author, pages) {
   this.title = title;
   this.author = author;
-  this.year = year;
+  this.pages = pages;
 
 }
 
-const book1 = new Book("Apology of Socrates", "Plato", 1988);
-const book2 = new Book("O Idiota", "Dostoiévski", 1888);
-const book3 = new Book("O grande Conflito", "Waite", 2006);
+const book1 = new Book("Apology of Socrates", "Plato", 475);
+const book2 = new Book("O Idiota", "Dostoiévski", 558);
+const book3 = new Book("O grande Conflito", "Waite", 267);
+const book4 = new Book("Íliada", "Homero", 967)
 
 
 function addBookToLibrary(books, newBook) {
   books.push(newBook); 
   displayBooks(newBook);
-  console.log(newBook)
-  return books;
+  console.log(newBook);
 }
 
 addBookToLibrary(myLibrary, book1);
@@ -85,11 +87,11 @@ function displayBooks(book) {
 
     para1.textContent = `${book.title}`;
     para2.textContent = `${book.author}`;
-    para3.textContent = `${book.year}`;
+    para3.textContent = `${book.pages}`;
 
     console.log(book.title);
     console.log(book.author);
-    console.log(book.year);
+    console.log(book.pages);
 }
 
 
