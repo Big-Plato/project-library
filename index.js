@@ -8,7 +8,6 @@ const submitBtn = document.querySelector("#submit");
 const form = document.querySelector("#book-form");
 const cardBtn = document.createElement("button");
 
-
 //Form submit
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -19,16 +18,15 @@ form.addEventListener("submit", (e) => {
   const pagesBook = document.querySelector("#pages");
   const checkRead = document.querySelector("#read");
 
-
   //If user does not put anything returns an error
-  if (bookTitle.value === " " || authorBook.value === " " || pagesBook.title === " ") {
+  if (
+    bookTitle.value === " " ||
+    authorBook.value === " " ||
+    pagesBook.title === " "
+  ) {
     throw new Error("Please, fill in before submit");
   } else {
     console.log(bookTitle.value);
-  }
-
-  if (checkRead.checked == true) {
-
   }
 
   // Create an array with the values provided to turn into a object
@@ -51,7 +49,7 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
-const book1 = new Book("Apology of Socrates", "Plato", 2005)
+const book1 = new Book("Apology of Socrates", "Plato", 2005);
 
 function addBookToLibrary(books, newBook) {
   books.push(newBook);
@@ -75,25 +73,20 @@ function displayBooks(book) {
   itemListBook.appendChild(para2);
   itemListBook.appendChild(para3);
 
-  const removeBtn = document.createElement('button');
+  const removeBtn = document.createElement("button");
   itemListBook.appendChild(removeBtn);
-  removeBtn.classList.add('btn');
+  removeBtn.classList.add("btn");
   removeBtn.textContent = "Remove";
 
-  removeBtn.addEventListener('click', () => {
+  removeBtn.addEventListener("click", () => {
     if (!confirm("Do you really want to remove?")) {
       e.preventDefault();
     } else {
       container.removeChild(itemListBook);
     }
-    
-  })
+  });
 
   para1.textContent = `${book.title}`;
   para2.textContent = `${book.author}`;
   para3.textContent = `${book.pages} pages`;
-
-  console.log(book.title);
-  console.log(book.author);
-  console.log(book.pages);
 }
