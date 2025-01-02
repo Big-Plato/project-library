@@ -176,6 +176,10 @@ footer {
   .container {
     grid-template-columns: 1fr;
   }
+  .card {
+    width: 60%;
+    place-self: center;
+  }
   dialog {
     width: 100%;
   }
@@ -191,7 +195,8 @@ footer {
   }
 
   .card {
-    width: 200px;
+    width: 70%;
+    place-self: center;
   }
 
   dialog {
