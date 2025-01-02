@@ -81,12 +81,17 @@ function displayBooks(book) {
   removeBtn.textContent = "Remove";
 
   removeBtn.addEventListener('click', () => {
-    container.removeChild(itemListBook);
+    if (!confirm("Do you really want to remove?")) {
+      e.preventDefault();
+    } else {
+      container.removeChild(itemListBook);
+    }
+    
   })
 
   para1.textContent = `${book.title}`;
   para2.textContent = `${book.author}`;
-  para3.textContent = `${book.pages}`;
+  para3.textContent = `${book.pages} pages`;
 
   console.log(book.title);
   console.log(book.author);
