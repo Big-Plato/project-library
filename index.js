@@ -18,6 +18,12 @@ form.addEventListener("submit", (e) => {
   const pagesBook = document.querySelector("#pages");
   const checkRead = document.querySelector("#read");
 
+  console.log(checkRead.value)
+
+  if (checkRead.value == 'on') {
+    console.log("Yes")
+  }
+
   //If user does not put anything returns an error
   if (
     bookTitle.value === " " ||
@@ -32,6 +38,8 @@ form.addEventListener("submit", (e) => {
   // Create an array with the values provided to turn into a object
   let arrBook = new Book(bookTitle.value, authorBook.value, pagesBook.value);
   addBookToLibrary(myLibrary, arrBook);
+
+  dialog.close();
 });
 
 showDialogBtn.addEventListener("click", () => {
