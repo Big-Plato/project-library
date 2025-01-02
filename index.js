@@ -83,10 +83,10 @@ function displayBooks(book) {
 
   const removeBtn = document.createElement("button");
   itemListBook.appendChild(removeBtn);
-  removeBtn.classList.add("btn");
+  removeBtn.classList.add("btnCard");
   removeBtn.textContent = "Remove";
 
-  removeBtn.addEventListener("click", () => {
+  removeBtn.addEventListener("click", (e) => {
     if (!confirm("Do you really want to remove?")) {
       e.preventDefault();
     } else {
@@ -94,7 +94,17 @@ function displayBooks(book) {
     }
   });
 
+  let bookAuthor = book.author;
+  let authorSplice = bookAuthor.split(" ");
+  console.log(authorSplice.length)
   para1.textContent = `${book.title}`;
-  para2.textContent = `${book.author}`;
+
+  if (authorSplice.length === 1) {
+    para2.textContent = `${book.author}`;
+    console.log("I work now")
+  } else {
+    authorSplice = authorSplice[1].toUpperCase() + ", " + authorSplice[0];
+    para2.textContent = `${authorSplice}`;
+  }
   para3.textContent = `${book.pages} pages`;
 }
