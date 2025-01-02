@@ -7,6 +7,13 @@ const closeDialogBtn = document.querySelector("#close");
 const submitBtn = document.querySelector("#submit");
 const form = document.querySelector("#book-form");
 const cardBtn = document.createElement("button");
+const checkRead = document.querySelector("#read");
+const input = document.querySelectorAll("input");
+
+inputArr = Array.from(input);
+console.log(inputArr)
+
+
 
 //Form submit
 form.addEventListener("submit", (e) => {
@@ -16,7 +23,7 @@ form.addEventListener("submit", (e) => {
   const bookTitle = document.querySelector("#title");
   const authorBook = document.querySelector("#author");
   const pagesBook = document.querySelector("#pages");
-  const checkRead = document.querySelector("#read");
+  
 
   console.log(checkRead.value)
 
@@ -55,18 +62,20 @@ function Book(title, author, pages, read) {
   this.author = author;
   this.pages = pages;
   this.read = read;
-}
+  };
+
 
 const book1 = new Book("Apology of Socrates", "Plato", 2005);
+
+addBookToLibrary(myLibrary, book1)
 
 function addBookToLibrary(books, newBook) {
   books.push(newBook);
   displayBooks(newBook);
-  console.log(newBook);
 }
 
 // Loop to add the books to the Library, Don't know if is needed
-for (let i = 1; i <= myLibrary.length; i++) {
+for (let i = 2; i <= myLibrary.length; i++) {
   displayBooks();
 }
 
@@ -77,9 +86,34 @@ function displayBooks(book) {
   const para1 = document.createElement("p");
   const para2 = document.createElement("p");
   const para3 = document.createElement("p");
+  const btnRead = document.createElement("button");
   itemListBook.appendChild(para1);
   itemListBook.appendChild(para2);
   itemListBook.appendChild(para3);
+  itemListBook.appendChild(btnRead);
+  btnRead.classList.add("readBtn");
+
+  // Change the button text accordingly with the checkbox in the form
+  btnRead.textContent = checkRead.value ? "Read" : "Not read";
+
+  let check = checkRead.checked;
+  console.log(check)
+  
+  // Button to toggle between "read" or "not read"
+  btnRead.addEventListener('click', () => {
+    if (check === true) {
+      check = false;
+      btnRead.textContent = "Read"
+      btnRead.classList.add("readBtn");
+      btnRead.classList.remove("notReadBtn");
+
+    } else if (check === false) {
+      check = true;
+      btnRead.textContent = "Not Read"
+      btnRead.classList.remove("readBtn");
+      btnRead.classList.add("notReadBtn")
+    }
+  });
 
   const removeBtn = document.createElement("button");
   itemListBook.appendChild(removeBtn);
