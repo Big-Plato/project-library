@@ -145,3 +145,19 @@ footer {
     padding: 20px;
     text-align: center;
 }
+
+@media only screen and (max-width: 600px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  dialog {
+    width: 100%;
+  }
+}
