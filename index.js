@@ -65,9 +65,13 @@ function Book(title, author, pages, read) {
   };
 
 
-const book1 = new Book("Apology of Socrates", "Plato", 2005);
-
-addBookToLibrary(myLibrary, book1)
+  const book1 = new Book("Apology of Socrates", "Plato", 60);
+  const book2 = new Book("Ethics: Subjectivity and Truth: Essential Works of Michel Foucault 1954-1984", "Michael Foucault", 384);
+  const book3 = new Book("Twilight of Idols", "Friedrich Nietzsche", 128);
+  
+addBookToLibrary(myLibrary, book1);
+addBookToLibrary(myLibrary, book2);
+addBookToLibrary(myLibrary, book3);
 
 function addBookToLibrary(books, newBook) {
   books.push(newBook);
@@ -75,7 +79,7 @@ function addBookToLibrary(books, newBook) {
 }
 
 // Loop to add the books to the Library, Don't know if is needed
-for (let i = 2; i <= myLibrary.length; i++) {
+for (let i = 3; i < myLibrary.length; i++) {
   displayBooks();
 }
 

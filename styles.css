@@ -30,13 +30,13 @@ h1 {
   gap: 20px;
   place-items: center;
   grid-template-rows: 1fr 1fr;
-  grid-template-columns: repeat(5, 1fr)  ;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: stretch;
+  justify-items: stretch;
 }
 
 .card {
   background-color: white;
-  width: 200px;
-  height: 150px;
   color: black;
   padding: 10px;
   border-radius: 10px;
@@ -46,10 +46,12 @@ h1 {
   display: grid;
 }
 
-.card p {
+.card > p {
   text-align: justify;
   font-size: 0.7rem;
-  margin: 4px;
+  margin: 2px;
+  padding: 0;
+  font-weight: bolder;
 }
 
 .card p:first-child {
@@ -70,6 +72,7 @@ h1 {
 
 .btnCard {
   justify-self: self-end;
+  width: 100%;
 }
 
 .btn, .btnCard {
@@ -173,9 +176,12 @@ footer {
   .container {
     grid-template-columns: 1fr;
   }
+  dialog {
+    width: 100%;
+  }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (min-width: 600px) and (max-width: 1000px) {
 
   .container {
     grid-template-columns: repeat(2, 50%);
