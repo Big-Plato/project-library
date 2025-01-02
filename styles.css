@@ -44,12 +44,17 @@ h1 {
   border-left: 10px solid #FF9D23;
   box-shadow: 2px 2px black;
   display: grid;
-  place-items: center;
 }
 
 .card p {
   text-align: justify;
-  line-height: 0.2rem;
+  font-size: 0.7rem;
+  margin: 4px;
+}
+
+.card p:first-child {
+  color: red;
+  font-weight: bolder;
 }
 
 .btn {
@@ -59,10 +64,12 @@ h1 {
   color: white;
   width: 200px;
   height: 80px;
-  
-  
   grid-area: 2 / 1 / 2 / 2;
   justify-self: center;
+}
+
+.btnCard {
+  justify-self: self-end;
 }
 
 .btn, .btnCard {
@@ -132,12 +139,6 @@ dialog #submit {
 dialog > * {
   border-radius: 10px;
   margin-top: 10px;
-}
-
-.card p:nth-child(1) {
-  font-weight: bolder;
-  color: #F93827;
-  font-size: 1.2rem;
 }
 
 footer {
